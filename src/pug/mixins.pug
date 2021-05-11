@@ -1,0 +1,12 @@
+mixin section(title)
+  section
+    .container
+      h2= title
+      block
+
+mixin occasion(imgTitle, title)
+  article.col
+    figure.img_wrap
+      img.img_wrap-img(src='/img/' + imgTitle + '.jpg' alt=imgTitle)
+    h3= title
+    p Опис основних випадків, в котрих сервіс буде корисним, і з якими частіше за все стикаються наші користувачі
