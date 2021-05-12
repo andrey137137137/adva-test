@@ -47,8 +47,16 @@ mixin service(title, imgTitle = 0)
             li= 'Пункт ' + (index + 1) + item
       a.btn Більше послуг &gt;
 
+mixin serviceForm(colClasses)
+  article.card.col(class = colClasses)
+    section.card-body
+      h3 Не знаєте що обрати?
+      p Пройдіть тест і дізнайтеся, яка послуга вам більше підходить
+      a.btn Вибрати послугу
+
 mixin packageServiceLI(key, value, disabled = false)
-  li.row(class = {'text-muted': disabled})
+  //- li.row(class = {'disabled': disabled})
+  li.row.d-flex(class = {'text-muted': disabled})
     .col= key
     .col.text-end= value
 
@@ -59,11 +67,13 @@ mixin packageService(title, price, count = 0, list = [])
       ? list
       : ['Усні медичні консультації', 'Усні юридичні консультації']
   - var itemValue = cond ? 1 : 4
+  - var subTag = 'sub'
+  - var priceStr = (cond ? '<' + subTag + '> від </' + subTag + '> ' : '') + price + ' грн'
 
   article.col
     h3= title
     div
-      b= price + ' грн'
+      b !{priceStr}
       ul
         each item, index in items
           +packageServiceLI(item, itemValue, cond && index >= count)

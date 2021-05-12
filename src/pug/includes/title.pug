@@ -1,0 +1,12 @@
+article
+  .container
+    .row
+      .col-8
+        h1 Юридична допомога на будь-які випадки online
+        h2 Маємо багатий досвід в напрямках:
+        ul
+          each item in ['сімейні спори', 'житлові спори', 'фінансові та кредитні спори']
+            li= item
+        a.btn(href='#') Інші напрямки та послуги
+      figure.col-4.img_wrap
+        img.img_wrap-img(src = pathes.img + '/main.png' alt='Смартфон')

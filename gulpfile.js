@@ -5,13 +5,13 @@ const gulp = require('gulp'),
   short = require('postcss-short'),
   shortText = require('postcss-short-text'),
   shortBorder = require('postcss-short-border'),
-  // webpack = require('webpack'),
   webpack = require('webpack-stream'),
   webpackConfig = require('./webpack.config.js'),
   browserSync = require('browser-sync').create(),
   pathes = {
     src: 'src',
     dest: 'public',
+    assets: 'public/assets',
     html: {
       src: '/pug',
       dest: '',
@@ -27,14 +27,18 @@ const gulp = require('gulp'),
   };
 
 for (path in pathes) {
-  if (!pathes[path].src) continue;
+  if (!pathes[path].src) {
+    continue;
+  }
 
-  pathes[path].src = pathes.src + pathes[path].src;
-  pathes[path].dest = pathes.dest + pathes[path].dest;
+  const { src, dest } = pathes[path];
+
+  pathes[path].src = pathes.src + src;
+  pathes[path].dest = pathes.dest + dest;
 }
 
 function clean() {
-  return del([pathes.dest + '/*']);
+  return del([pathes.dest + '/*', '!' + pathes.assets]);
 }
 
 function html() {
@@ -84,11 +88,10 @@ function js() {
   return (
     gulp
       .src(pathes.js.src + '/*.js')
-      // .pipe($gp.sourcemaps.init())
-      // .pipe($gp.webpack(webpackConfig, webpack))
+      .pipe($gp.sourcemaps.init())
       .pipe(webpack(webpackConfig))
       // .pipe(concat('script.min.js'))
-      // .pipe($gp.sourcemaps.write())
+      .pipe($gp.sourcemaps.write())
       .pipe(gulp.dest(pathes.js.dest))
   );
 }
@@ -102,7 +105,15 @@ function browser_sync() {
 }
 
 function watch() {
-  gulp.watch([pathes.html.src + '/*.pug', pathes.html.src + '/includes/*.pug'], gulp.series(html));
+  gulp.watch(
+    [
+      pathes.assets + '/**/*',
+      pathes.assets + '/**/**/*',
+      pathes.html.src + '/*.pug',
+      pathes.html.src + '/includes/*.pug',
+    ],
+    gulp.series(html),
+  );
   gulp.watch(pathes.css.src + '/*.scss', gulp.series(css));
   gulp.watch(pathes.js.src + '/*.js', gulp.series(js));
 }
