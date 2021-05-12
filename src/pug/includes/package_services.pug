@@ -1,3 +1,9 @@
-+section('Пакетні послуги')
-  - for (var i = 0; i < 4; i++)
-    +occasion(i + 1, 'Заголовок ' + (i + 1))
++section(titles.packageService)
+  -
+    var items = [
+      {title: 'Базовий', price: 500},
+      {title: 'Бухгалтерський', price: 600},
+      {title: 'Преміум', price: 999}
+    ]
+  each item in items
+    +packageService(item.title, item.price)

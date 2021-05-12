@@ -1,3 +1,6 @@
-+section('Основні послуги')
++section(titles.service)
   - for (var i = 0; i < 4; i++)
-    +occasion(i + 1, 'Заголовок ' + (i + 1))
+    if i
+      +service('Назва послуги ' + (i + 1))
+    else
+      +service('Сімейні спори')

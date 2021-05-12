@@ -1,3 +1,17 @@
-+section('Ми допомагаємо в випадаках')
-  - for (var i = 0; i < 4; i++)
-    +occasion(i + 1, 'Заголовок ' + (i + 1))
++section('Етапи роботи')
+  -
+    var titles = [
+      'Обираєте пакет чи питання, яке Вас цікавить',
+      'Залишаєте заявку на сайті',
+      'Сплачуєте послуги на обираєте час консультації',
+      'Отримуєте послугу'
+    ]
+  - var imgTitle = 0
+
+  each title, index in titles
+    - imgTitle = index + 1
+    article.card(class = colClasses[4])
+      //- figure.img_wrap
+      img.img_wrap-img(src='/img/' + imgTitle + '.jpg' alt=imgTitle)
+      section.card-body
+        h3= title
