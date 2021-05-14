@@ -1,5 +1,5 @@
-mixin section(title)
-  section
+mixin section(id, title)
+  section(id = id)
     .container
       .row
         h2= title
@@ -15,7 +15,7 @@ mixin occasion(imgTitle, title = '')
       p= desc
     else
       //- figure.img_wrap
-      img.img_wrap-img(src='/img/' + imgTitle + '.jpg' alt=imgTitle)
+      img.img_wrap-img(src = pathes.img + '/occasions/' + imgTitle + '.jpg' alt = imgTitle)
       section.card-body
         h3= title
         p= desc
@@ -35,7 +35,7 @@ mixin service(title, imgTitle = 0)
   article.card.col
     if imgTitle
       //- figure.img_wrap
-      img.img_wrap-img(src='/img/' + imgTitle + '.jpg' alt=imgTitle)
+      img.img_wrap-img(src = pathes.img + '/img_services/' + imgTitle + '.jpg' alt = imgTitle)
     section.card-body
       h3= title
       ul

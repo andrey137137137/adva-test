@@ -1,4 +1,4 @@
-+section('Етапи роботи')
++section('job_stages', 'Етапи роботи')
   -
     var titles = [
       'Обираєте пакет чи питання, яке Вас цікавить',
@@ -12,6 +12,6 @@
     - imgTitle = index + 1
     article.card(class = colClasses[4])
       //- figure.img_wrap
-      img.img_wrap-img(src='/img/' + imgTitle + '.jpg' alt=imgTitle)
+      img.img_wrap-img(src = pathes.img + '/job_stages/' + imgTitle + '.png' alt = imgTitle)
       section.card-body
         h3= title
