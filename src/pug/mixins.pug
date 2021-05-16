@@ -1,15 +1,15 @@
-mixin section(id, title)
-  section(id = id)
-    .container
-      .row
-        h2= title
+mixin section(classes, title)
+  section.section(class = classes)
+    .container.section-container
+      .row.justify-content-between
+        h2.section-title.section-title--main= title
         block
 
 mixin occasion(imgTitle, title = '')
   - var desc = 'Опис основних випадків, в котрих сервіс буде корисним, і з якими частіше за все стикаються наші користувачі'
-  - var classes = title ? colClasses[4] + ' card' : colClasses[6]
+  - var classes = title ? colClasses[4] + ' card p-0 border-0' : colClasses[6]
 
-  article.col-sm-12(class = classes)
+  article.col.col-sm-12(class = classes)
     if !title
       .icon
       p= desc
@@ -17,7 +17,7 @@ mixin occasion(imgTitle, title = '')
       //- figure.img_wrap
       img.img_wrap-img(src = pathes.img + '/occasions/' + imgTitle + '.jpg' alt = imgTitle)
       section.card-body
-        h3= title
+        h3.section-title= title
         p= desc
 
 mixin service(title, imgTitle = 0)
@@ -37,7 +37,7 @@ mixin service(title, imgTitle = 0)
       //- figure.img_wrap
       img.img_wrap-img(src = pathes.img + '/img_services/' + imgTitle + '.jpg' alt = imgTitle)
     section.card-body
-      h3= title
+      h3.section-title= title
       ul
         if imgTitle
           each item, index in longList
@@ -50,7 +50,7 @@ mixin service(title, imgTitle = 0)
 mixin serviceForm(colClasses)
   article.card.col(class = colClasses)
     section.card-body
-      h3 Не знаєте що обрати?
+      h3.section-title Не знаєте що обрати?
       p Пройдіть тест і дізнайтеся, яка послуга вам більше підходить
       a.btn Вибрати послугу
 
@@ -71,7 +71,7 @@ mixin packageService(title, price, count = 0, list = [])
   - var priceStr = (cond ? '<' + subTag + '> від </' + subTag + '> ' : '') + price + ' грн'
 
   article.col
-    h3= title
+    h3.section-title= title
     div
       b !{priceStr}
       ul

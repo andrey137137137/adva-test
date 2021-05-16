@@ -2,34 +2,104 @@
 @import 'mixins';
 
 body {
-  // font-weight: 800;
-  font-size: 24px;
-  // line-height: 92%;
-  line-height: 38px;
-  color: #343434;
+  font-size: 16px;
+  line-height: 25.66px;
+  color: #343434 #e5e5e5;
 }
 
-nav {
+.col,
+.card,
+.card-body {
+  overflow: hidden;
+}
+
+.card {
+  border-radius: 10px;
+}
+
+.section {
+  overflow: hidden;
+
+  &:nth-child(odd) {
+    background-color: #ccc;
+  }
+
+  &-container {
+    justify-content: space-between;
+    max-width: 1264px;
+  }
+
+  &-title {
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 38px;
+
+    &--mainest {
+      font-size: 64px;
+      line-height: 76px;
+    }
+
+    &--main {
+      font-size: 40px;
+      line-height: 48px;
+    }
+  }
+}
+
+.nav {
   height: 74px;
   font-size: 18px;
   line-height: 21px;
 }
 
-h1,
-h2,
-h3 {
-  font-weight: 800;
+.occasions {
+  // width: 1265px;
+  height: 585px;
+
+  .card {
+    width: 301px;
+    height: 508px;
+
+    &-body {
+      padding: 31px 34px 40px 40px;
+      height: 158px;
+    }
+  }
+
+  .img_wrap-img {
+    height: 278px;
+  }
+
+  .section-title {
+    margin-bottom: 0;
+  }
 }
 
-h1 {
-  font-size: 64px/76px;
+.services {
+  // width: 1257px;
+  height: 669px;
 }
 
-h2 {
-  font-size: 40px;
-  line-height: 48px;
+.package_services {
+  // width: 1258px;
+  height: 514px;
 }
 
-h3 {
-  line-height: 120%;
+.icon_occasions {
+  // width: 1263px;
+  height: 656px;
+}
+
+.img_services {
+  // width: 1262px;
+  height: 1223px;
+}
+
+.ext_package_services {
+  height: 1010px;
+}
+
+.job_stages {
+  // width: 1260px;
+  height: 1064px;
 }
