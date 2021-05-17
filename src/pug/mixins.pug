@@ -5,6 +5,9 @@ mixin section(classes, title)
         h2.section-title.section-title--main= title
         block
 
+mixin button(content)
+  a.btn.btn-primary(href='#') !{content}
+
 mixin occasion(imgTitle, title = '')
   - var desc = 'Опис основних випадків, в котрих сервіс буде корисним, і з якими частіше за все стикаються наші користувачі'
   - var classes = title ? colClasses[4] + ' card p-0 border-0' : colClasses[6]
@@ -45,14 +48,14 @@ mixin service(title, imgTitle = 0)
         else
           each item, index in shortList
             li= 'Пункт ' + (index + 1) + item
-      a.btn Більше послуг &gt;
+      +button('Більше послуг &gt;')
 
 mixin serviceForm(colClasses)
   article.card.col(class = colClasses)
     section.card-body
       h3.section-title Не знаєте що обрати?
       p Пройдіть тест і дізнайтеся, яка послуга вам більше підходить
-      a.btn Вибрати послугу
+      +button('Вибрати послугу')
 
 mixin packageServiceLI(key, value, disabled = false)
   //- li.row(class = {'disabled': disabled})
@@ -77,4 +80,4 @@ mixin packageService(title, price, count = 0, list = [])
       ul
         each item, index in items
           +packageServiceLI(item, itemValue, cond && index >= count)
-      a.btn Замовити
+      +button('Замовити')

@@ -2,9 +2,11 @@
 @import 'mixins';
 
 body {
+  position: relative;
   font-size: 16px;
   line-height: 25.66px;
-  color: #343434 #e5e5e5;
+  color: #343434;
+  background: url(../assets/img/main.png) 654px 28px no-repeat #e5e5e5;
 }
 
 .col,
@@ -13,16 +15,12 @@ body {
   overflow: hidden;
 }
 
-.card {
-  border-radius: 10px;
-}
-
 .section {
   overflow: hidden;
 
-  &:nth-child(odd) {
-    background-color: #ccc;
-  }
+  // &:nth-child(odd) {
+  //   background-color: #ccc;
+  // }
 
   &-container {
     justify-content: space-between;
@@ -32,24 +30,80 @@ body {
   &-title {
     font-weight: 800;
     font-size: 24px;
-    line-height: 38px;
+    // line-height: 38px;
 
     &--mainest {
+      margin-bottom: 75px;
       font-size: 64px;
       line-height: 76px;
     }
 
     &--main {
+      margin-bottom: 12px;
       font-size: 40px;
-      line-height: 48px;
+      // line-height: 48px;
     }
   }
 }
 
 .nav {
-  height: 74px;
+  // height: 74px;
+  height: 120px;
   font-size: 18px;
   line-height: 21px;
+
+  &-container {
+    @include padding('* 2px * 3px');
+  }
+
+  .nav-login {
+    @include position('relative -5px * *');
+  }
+}
+
+.navbar {
+  &-nav {
+    justify-content: space-between;
+    @include padding('* 116px * 100px');
+    width: 100%;
+  }
+
+  &-brand {
+    padding-top: 2px;
+  }
+}
+
+.list {
+  font-size: 24px/42px;
+  &-item {
+  }
+}
+
+.main {
+  &-col {
+    @include padding('137px 35px * 5px');
+  }
+
+  .main-list {
+    margin-bottom: 40px;
+  }
+}
+
+.btn {
+  $bgColor: #6c5dd2;
+
+  border-radius: $borderRadius;
+  padding: 0 24px;
+  font-size: 18px/57px;
+
+  &-primary {
+    border-color: $bgColor;
+    background-color: $bgColor;
+  }
+}
+
+.card {
+  border-radius: $borderRadius;
 }
 
 .occasions {
@@ -103,3 +157,5 @@ body {
   // width: 1260px;
   height: 1064px;
 }
+
+@include pixelPerfect('short');

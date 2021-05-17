@@ -1,6 +1,6 @@
-@mixin pixelPerfect($device, $page: "", $top: 0) {
+@mixin pixelPerfect($page: '', $top: 0) {
   #pixel_perfect {
-    $img: "";
+    $img: '#{$page}.png';
 
     position: absolute;
     // top: -194px;
@@ -8,29 +8,23 @@
     left: 0;
     z-index: $zMax;
     size: 100%;
-
-    @if $device == "preloader" {
-      $img: "night_preloader.gif";
-    } @else {
-      $img: "#{$device}_night_#{$page}.jpg";
-    }
-
-    background: url(../img/#{$img}) center top repeat-y;
+    background: url(../assets/img/#{$img}) center top repeat-y;
+    // background-size: cover;
+    background-attachment: scroll;
     opacity: 0.5;
   }
 }
 
 @mixin fonts($fontFamily, $weight: normal, $style: normal) {
-  $rootPath: "../fonts";
+  $rootPath: '../fonts';
 
   @font-face {
     font-family: $fontFamily;
-    src: url("#{$rootPath}/#{$fontFamily}/#{$fontFamily}.eot");
-    src: url("#{$rootPath}/#{$fontFamily}/#{$fontFamily}.eot?#iefix")
-        format("embedded-opentype"),
-      url("#{$rootPath}/#{$fontFamily}/#{$fontFamily}.woff2") format("woff2"),
-      url("#{$rootPath}/#{$fontFamily}/#{$fontFamily}.woff") format("woff"),
-      url("#{$rootPath}/#{$fontFamily}/#{$fontFamily}.ttf") format("truetype");
+    src: url('#{$rootPath}/#{$fontFamily}/#{$fontFamily}.eot');
+    src: url('#{$rootPath}/#{$fontFamily}/#{$fontFamily}.eot?#iefix') format('embedded-opentype'),
+      url('#{$rootPath}/#{$fontFamily}/#{$fontFamily}.woff2') format('woff2'),
+      url('#{$rootPath}/#{$fontFamily}/#{$fontFamily}.woff') format('woff'),
+      url('#{$rootPath}/#{$fontFamily}/#{$fontFamily}.ttf') format('truetype');
     font-weight: $weight;
     font-style: $style;
   }
@@ -80,22 +74,20 @@
 }
 
 @mixin svgBg($id) {
-  background: url("../svg/symbol/svg/sprite.symbol.svg##{$id}");
+  background: url('../svg/symbol/svg/sprite.symbol.svg##{$id}');
 }
 
 @mixin borderCornerColor($firstColor, $secondColor: $firstColor) {
-  @include border("* / * / * #{$firstColor} * #{$secondColor}");
+  @include border('* / * / * #{$firstColor} * #{$secondColor}');
 }
 
 @mixin borderPx($width, $height) {
   $halfWidth: $width/2;
 
-  @include border(
-    "#{$height} #{$halfWidth} 0 #{$halfWidth} / solid / transparent * transparent *"
-  );
+  @include border('#{$height} #{$halfWidth} 0 #{$halfWidth} / solid / transparent * transparent *');
 }
 
-@mixin borderCornerHeight($height, $block: "top_wrap") {
+@mixin borderCornerHeight($height, $block: 'top_wrap') {
   margin-top: -$height;
 
   .#{$block}__corner_border {
@@ -111,7 +103,7 @@
 }
 
 @mixin cols($count, $colWidth, $postfix, $totalWidth) {
-  $colClass: ".col";
+  $colClass: '.col';
 
   @for $col from 1 through $count {
     #{$colClass}#{$colClass}-#{$postfix}_#{$col} {
@@ -120,7 +112,7 @@
   }
 }
 
-@mixin container($maxWidth: 768, $padding: 12, $postfix: "tb", $count: 12) {
+@mixin container($maxWidth: 768, $padding: 12, $postfix: 'tb', $count: 12) {
   $contentWidth: $maxWidth - 2 * $padding;
   $colWidth: $contentWidth / $count;
 
@@ -128,7 +120,7 @@
     $block: &;
 
     max-width: #{$maxWidth}px;
-    @include padding("* #{$padding}px");
+    @include padding('* #{$padding}px');
 
     @include cols($count - 1, $colWidth, $postfix, $contentWidth);
 
