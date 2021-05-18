@@ -2,11 +2,11 @@
 @import 'mixins';
 
 body {
+  font-family: $mainFont;
   position: relative;
   font-size: 16px;
   line-height: 25.66px;
   color: #343434;
-  background: url(../assets/img/main.png) 654px 28px no-repeat #e5e5e5;
 }
 
 .col,
@@ -24,7 +24,7 @@ body {
 
   &-container {
     justify-content: space-between;
-    max-width: 1264px;
+    max-width: $maxWidth;
   }
 
   &-title {
@@ -73,6 +73,15 @@ body {
   }
 }
 
+.img_wrap {
+  margin-bottom: 0;
+
+  &-img {
+    width: auto;
+    max-width: 100%;
+  }
+}
+
 .list {
   font-size: 24px/42px;
   &-item {
@@ -80,11 +89,33 @@ body {
 }
 
 .main {
-  &-col {
+  $sideMargin: 292px;
+
+  // height: 500px;
+  // overflow: visible;
+
+  &-container {
+    // @include position('absolute 0 * * 50%');
+    position: relative;
+    // max-width: $sideMargin * 2 + $maxWidth;
+    // background: url(../assets/img/main.png) 946px -92px no-repeat #e5e5e5;
+    // transform: translateX(-50%);
+  }
+
+  // &-row {
+  //   @include margin('* #{$sideMargin}');
+  // }
+
+  &-img {
+    @include position('relative -92px * * 642px');
+  }
+
+  &-text {
+    @include position('absolute 0 * * 0');
     @include padding('137px 35px * 5px');
   }
 
-  .main-list {
+  &-list {
     margin-bottom: 40px;
   }
 }

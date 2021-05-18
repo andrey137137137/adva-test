@@ -1,12 +1,12 @@
 article.section.main
   .container.section-container.main-container
-    .row
-      .col.col-8.main-col
+    .row.main-row
+      figure.img_wrap.main-img
+        img.img_wrap-img(src = pathes.img + '/main.png' alt='Смартфон')
+      .col.col-9.main-text
         h1.section-title.section-title--mainest Юридична допомога на будь-які випадки online
         h2.section-title.section-title--main Маємо багатий досвід в напрямках:
         ul.list.main-list
           each item in ['сімейні спори', 'житлові спори', 'фінансові та кредитні спори']
             li.list-item= item
         +button('Інші напрямки та послуги')
-      //- figure.col.col-4.img_wrap
-      //-   img.img_wrap-img(src = pathes.img + '/main.png' alt='Смартфон')
