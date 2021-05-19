@@ -10,7 +10,7 @@ mixin button(content)
 
 mixin occasion(imgTitle, title = '')
   - var desc = 'Опис основних випадків, в котрих сервіс буде корисним, і з якими частіше за все стикаються наші користувачі'
-  - var classes = title ? colClasses[4] + ' card p-0 border-0' : colClasses[6]
+  - var classes = title ? colClasses[4] + ' card occasions-card' : colClasses[6]
 
   article.col.col-sm-12(class = classes)
     if !title
@@ -18,9 +18,9 @@ mixin occasion(imgTitle, title = '')
       p= desc
     else
       //- figure.img_wrap
-      img.img_wrap-img(src = pathes.img + '/occasions/' + imgTitle + '.jpg' alt = imgTitle)
-      section.card-body
-        h3.section-title= title
+      img.img_wrap-img.occasions-img(src = pathes.img + '/occasions/' + imgTitle + '.jpg' alt = imgTitle)
+      section.card-body.occasions-card_body
+        h3.section-title.section-title--sub.occasions-title= title
         p= desc
 
 mixin service(title, imgTitle = 0)

@@ -114,7 +114,7 @@ function watch() {
     ],
     gulp.series(html),
   );
-  gulp.watch(pathes.css.src + '/*.scss', gulp.series(css));
+  gulp.watch([pathes.css.src + '/*.scss', pathes.css.src + '/**/*.scss'], gulp.series(css));
   gulp.watch(pathes.js.src + '/*.js', gulp.series(js));
 }
 

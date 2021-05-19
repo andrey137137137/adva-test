@@ -1,0 +1,25 @@
+.occasions {
+  @include padding('* 1px');
+  // width: 1265px;
+  height: 585px;
+
+  &-card {
+    padding: 0;
+    border-width: 0;
+    width: 301px;
+    height: 508px;
+  }
+
+  &-img {
+    height: 278px;
+  }
+
+  &-card_body {
+    padding: 37px 34px 40px 41px;
+    height: 158px;
+  }
+
+  &-title {
+    margin-bottom: 22px;
+  }
+}

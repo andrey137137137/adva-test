@@ -1,0 +1,36 @@
+.nav {
+  $negativeMargin: -2px;
+
+  // height: 74px;
+  height: 120px;
+  font-size: 18px;
+  line-height: 21px;
+
+  &-container {
+    @include padding('* 2px * 3px');
+  }
+
+  &-logo {
+    padding-top: 2px;
+  }
+
+  &-menu_wrap {
+    margin-top: $negativeMargin;
+    @include padding('* 118px * 100px');
+  }
+
+  &-menu {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &-lang {
+    @include margin('#{$negativeMargin} 125px * *');
+    color: $darkBlack;
+    text-decoration: none;
+  }
+
+  &-login {
+    @include position('relative -5px * *');
+  }
+}

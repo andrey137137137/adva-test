@@ -3,10 +3,13 @@ article.section.main
     .row.main-row
       figure.img_wrap.main-img
         img.img_wrap-img(src = pathes.img + '/main.png' alt='Смартфон')
-      .col.col-9.main-text
-        h1.section-title.section-title--mainest Юридична допомога на будь-які випадки online
-        h2.section-title.section-title--main Маємо багатий досвід в напрямках:
-        ul.list.main-list
+      .col.col-8.main-text
+        h1.section-title.section-title--mainest
+          | Юридична допомога
+          br
+          | на будь-які випадки online
+        h2.section-title.section-title--main.main-sub_title Маємо багатий досвід в напрямках:
+        ul.list.list--dotted.main-list
           each item in ['сімейні спори', 'житлові спори', 'фінансові та кредитні спори']
             li.list-item= item
         +button('Інші напрямки та послуги')

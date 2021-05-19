@@ -16,7 +16,7 @@
 }
 
 @mixin fonts($fontFamily, $weight: normal, $style: normal) {
-  $rootPath: '../fonts';
+  $rootPath: '../assets/fonts';
 
   @font-face {
     font-family: $fontFamily;

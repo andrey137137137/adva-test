@@ -1,14 +1,15 @@
 $reserveFonts: Arial, Helvetica, sans-serif;
-$mainFont: 'Roboto', $reserveFonts;
-$sectionTitleFont: SansusWebissimo, $mainFont;
+// $reserveFonts: 'Times New Roman';
+$mainFonts: BlissPro, $reserveFonts;
+$subTitleFonts: 'BlissPro-ExtraBold', $mainFonts;
 
 $trsTime: 1s;
 
 $white: #fff;
 
-$darkWhite: #faf8f0;
-$grey: #474b57;
+$grey: #c4c4c4;
 
+$darkBlack: #343434;
 $black: #000;
 
 $red: #e44845;
