@@ -3,14 +3,14 @@ body {
   position: relative;
   font-size: 16px/26px;
   // line-height: 25.66px;
-  color: $darkBlack;
+  color: $darkBlack #e5e5e5;
 }
 
-.col,
-.card,
-.card-body {
-  overflow: hidden;
-}
+// .col,
+// .card,
+// .card-body {
+//   overflow: hidden;
+// }
 
 .section {
   overflow: hidden;
@@ -47,6 +47,10 @@ body {
   }
 }
 
+// .row > * {
+//   margin-top: 0;
+// }
+
 .text-muted {
   color: $grey;
 }
@@ -65,16 +69,17 @@ body {
 
   padding-left: 0;
   list-style: none outside;
-  font-size: 24px/42px;
 
   &--dotted {
     #{$block}-item {
       position: relative;
-      padding-left: 15px;
+      padding-left: 11px;
 
       &:before {
-        position: absolute;
+        @include position('absolute 12px * * 0');
         display: block;
+        border-radius: 50%;
+        size: 2px;
         background-color: $darkBlack;
         content: '';
       }
@@ -96,5 +101,7 @@ body {
 }
 
 .card {
+  border-width: 0;
   border-radius: $borderRadius;
+  @include padding('* 0');
 }

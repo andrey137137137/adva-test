@@ -1,7 +1,11 @@
-mixin section(classes, title)
+mixin row(rowClasses = 'justify-content-between')
+  .row(class = rowClasses)
+    block
+
+mixin section(classes, title, rowClasses = 'justify-content-between')
   section.section(class = classes)
     .container.section-container
-      .row.justify-content-between
+      +row(rowClasses)
         h2.section-title.section-title--main= title
         block
 
@@ -19,7 +23,7 @@ mixin occasion(imgTitle, title = '')
     else
       //- figure.img_wrap
       img.img_wrap-img.occasions-img(src = pathes.img + '/occasions/' + imgTitle + '.jpg' alt = imgTitle)
-      section.card-body.occasions-card_body
+      section.card-body
         h3.section-title.section-title--sub.occasions-title= title
         p= desc
 
@@ -35,27 +39,28 @@ mixin service(title, imgTitle = 0)
       'Представництво інтересів під час вирішення сімейних спорів у судах, органах опіки та піклування'
     ]
 
-  article.card.col
+  article.card.services-card
     if imgTitle
       //- figure.img_wrap
       img.img_wrap-img(src = pathes.img + '/img_services/' + imgTitle + '.jpg' alt = imgTitle)
     section.card-body
-      h3.section-title= title
-      ul
+      h3.section-title.services-title= title
+      ul.list.list--dotted.services-list
         if imgTitle
           each item, index in longList
-            li= item
+            li.list-item= item
         else
           each item, index in shortList
-            li= 'Пункт ' + (index + 1) + item
-      +button('Більше послуг &gt;')
+            li.list-item= 'Пункт ' + (index + 1) + item
+      if imgTitle
+        +button('Більше послуг &gt;')
 
-mixin serviceForm(colClasses)
-  article.card.col(class = colClasses)
+mixin serviceForm(colClasses = '')
+  article.card.services-card.services-card--form(class = colClasses)
     section.card-body
-      h3.section-title Не знаєте що обрати?
+      h3.section-title.section-title--main Не знаєте що обрати?
       p Пройдіть тест і дізнайтеся, яка послуга вам більше підходить
-      +button('Вибрати послугу')
+      +button('Почати тест')
 
 mixin packageServiceLI(key, value, disabled = false)
   //- li.row(class = {'disabled': disabled})

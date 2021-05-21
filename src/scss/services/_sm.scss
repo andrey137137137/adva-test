@@ -1,0 +1,45 @@
+.services {
+  $block: &;
+
+  padding-top: 90px;
+  width: 1257px;
+  height: 669px;
+
+  &-title {
+    margin-bottom: 14px;
+    padding-left: 10px;
+    // line-height: 38px;
+  }
+
+  &-list {
+    font-size: 18px;
+    // line-height: 28.87px;
+
+    .list-item {
+      margin-bottom: 13px;
+    }
+  }
+
+  &-card {
+    $margin: 20px;
+    $height: 257px;
+
+    margin-bottom: $margin;
+    size: 406px $height;
+
+    .card-body {
+      padding: 33px 0 20px 34px;
+    }
+
+    &--form {
+      // margin-left: $margin;
+      margin-left: 19px;
+      height: $height * 2 + $margin;
+      color: $white $blue;
+
+      #{$block}-title {
+        // line-height: 122.9%;
+      }
+    }
+  }
+}

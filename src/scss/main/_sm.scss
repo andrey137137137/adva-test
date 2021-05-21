@@ -32,12 +32,16 @@
 
   &-list {
     margin-bottom: 38px;
+    font-size: 24px/42px;
 
-    .list-item:before {
-      top: 21px;
-      left: 3px;
-      border-radius: 50%;
-      size: 4px;
+    .list-item {
+      padding-left: 15px;
+
+      &:before {
+        top: 21px;
+        left: 3px;
+        size: 4px;
+      }
     }
   }
 }

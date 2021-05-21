@@ -1,7 +1,9 @@
 +section('services', titles.service)
-  - for (var i = 0; i < 4; i++)
-    if i
-      +service('Назва послуги ' + (i + 1))
-    else
-      +service('Сімейні спори')
+  .col
+    +row
+      - for (var i = 0; i < 4; i++)
+        if i
+          +service('Назва послуги ' + (i + 1))
+        else
+          +service('Сімейні спори')
   +serviceForm()

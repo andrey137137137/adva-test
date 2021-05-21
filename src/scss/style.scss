@@ -10,34 +10,12 @@
 @import 'nav/sm';
 @import 'main/sm';
 @import 'occasions/sm';
-
-.services {
-  // width: 1257px;
-  height: 669px;
-}
-
-.package_services {
-  // width: 1258px;
-  height: 514px;
-}
-
-.icon_occasions {
-  // width: 1263px;
-  height: 656px;
-}
-
-.img_services {
-  // width: 1262px;
-  height: 1223px;
-}
-
-.ext_package_services {
-  height: 1010px;
-}
-
-.job_stages {
-  // width: 1260px;
-  height: 1064px;
-}
+@import 'services/sm';
+@import 'package_services/sm';
+@import 'icon_occasions/sm';
+@import 'img_services/sm';
+@import 'ext_package_services/sm';
+@import 'job_stages/sm';
+@import 'comparisons/sm';
 
 @include pixelPerfect('short');
