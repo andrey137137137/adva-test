@@ -41,6 +41,7 @@ body {
 
     &--main {
       margin-bottom: 31px;
+      @include padding('* 6px');
       font-size: 40px;
       // line-height: 48px;
     }
@@ -92,11 +93,15 @@ body {
 
   border-radius: $borderRadius;
   padding: 0 24px;
-  font-size: 18px/57px;
+  font-size: 18px/50px;
 
   &-primary {
     border-color: $bgColor;
     background-color: $bgColor;
+  }
+
+  &--high {
+    line-height: 57px;
   }
 }
 

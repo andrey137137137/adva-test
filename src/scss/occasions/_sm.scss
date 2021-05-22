@@ -1,15 +1,15 @@
 .occasions {
   @include padding('* 1px');
   width: 1265px;
-  height: 585px;
+  // height: 585px;
 
   &-card {
     width: 301px;
-    height: 508px;
+    // height: 508px;
 
     .card-body {
-      padding: 37px 34px 40px 41px;
-      height: 158px;
+      padding: 37px 34px 22px 41px;
+      // height: 158px;
     }
   }
 

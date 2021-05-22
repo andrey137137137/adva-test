@@ -1,9 +1,10 @@
 .services {
   $block: &;
+  $paddingTop: 89px;
 
-  padding-top: 90px;
+  padding-top: $paddingTop;
   width: 1257px;
-  height: 669px;
+  height: 669px + $paddingTop;
 
   &-title {
     margin-bottom: 14px;
@@ -38,7 +39,26 @@
       color: $white $blue;
 
       #{$block}-title {
-        // line-height: 122.9%;
+        margin-bottom: 16px;
+        padding-left: 0;
+      }
+
+      #{$block}-text {
+        margin-bottom: 18px;
+        line-height: 30px;
+      }
+
+      #{$block}-btn {
+        @include padding('* 32px');
+      }
+
+      #{$block}-img {
+        @include position('absolute * * -57px -10px');
+        width: 418px;
+      }
+
+      .card-body {
+        padding: 29px 75px 20px 44px;
       }
     }
   }
