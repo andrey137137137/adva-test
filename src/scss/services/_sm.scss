@@ -2,9 +2,9 @@
   $block: &;
   $paddingTop: 89px;
 
-  padding-top: $paddingTop;
+  @include padding('#{$paddingTop} * 66px');
   width: 1257px;
-  height: 669px + $paddingTop;
+  // height: 669px + $paddingTop;
 
   &-title {
     margin-bottom: 14px;
@@ -26,10 +26,11 @@
     $height: 257px;
 
     margin-bottom: $margin;
-    size: 406px $height;
+    // size: 406px $height;
+    width: 406px;
 
     .card-body {
-      padding: 33px 0 20px 34px;
+      @include padding('33px * 23px 34px');
     }
 
     &--form {

@@ -33,13 +33,13 @@ body {
       font-family: $subTitleFonts;
     }
 
-    &--mainest {
+    &--large {
       margin-bottom: 75px;
       font-size: 64px;
       line-height: 76px;
     }
 
-    &--main {
+    &--big {
       margin-bottom: 31px;
       @include padding('* 6px');
       font-size: 40px;

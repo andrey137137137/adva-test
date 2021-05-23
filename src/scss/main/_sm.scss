@@ -1,20 +1,7 @@
 .main {
-  $sideMargin: 292px;
-
-  // height: 500px;
-  // overflow: visible;
-
   &-container {
-    // @include position('absolute 0 * * 50%');
     position: relative;
-    // max-width: $sideMargin * 2 + $maxWidth;
-    // background: url(../assets/img/main.png) 946px -92px no-repeat #e5e5e5;
-    // transform: translateX(-50%);
   }
-
-  // &-row {
-  //   @include margin('* #{$sideMargin}');
-  // }
 
   &-img {
     @include position('relative -92px * * 642px');

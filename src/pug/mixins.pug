@@ -6,7 +6,7 @@ mixin section(classes, title, rowClasses = 'justify-content-between')
   section.section(class = classes)
     .container.section-container
       +row(rowClasses)
-        h2.section-title.section-title--main= title
+        h2.section-title.section-title--big= title
         block
 
 mixin button(content, classes)
@@ -58,7 +58,7 @@ mixin service(title, imgTitle = 0)
 mixin serviceForm(colClasses = '')
   article.card.services-card.services-card--form(class = colClasses)
     section.card-body
-      h3.section-title.section-title--main.services-title Не знаєте що обрати?
+      h3.section-title.section-title--big.services-title Не знаєте що обрати?
       p.services-text Пройдіть тест і дізнайтеся, яка послуга вам більше підходить
       +button('Почати тест', 'services-btn')
     figure.img_wrap.services-img
@@ -80,11 +80,11 @@ mixin packageService(title, price, count = 0, list = [])
   - var subTag = 'sub'
   - var priceStr = (cond ? '<' + subTag + '> від </' + subTag + '> ' : '') + price + ' грн'
 
-  article.col
-    h3.section-title= title
+  article.col.package_services-col
+    h3.section-title.section-title--big.package_services-sub_title= title
     div
-      b !{priceStr}
+      b.section-title.section-title--big.package_services-price !{priceStr}
       ul
         each item, index in items
           +packageServiceLI(item, itemValue, cond && index >= count)
-      +button('Замовити')
+      +button('Замовити', 'package_services-btn')
