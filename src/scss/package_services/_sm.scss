@@ -2,27 +2,41 @@
   width: 1258px;
   height: 514px;
 
-  &-col {
-    @include padding('* 0');
-    max-width: 406px;
+  &-card {
+    // @include padding('* 0');
+    width: 406px;
+
+    .card-body {
+      @include padding('24px * 39px');
+    }
   }
 
   &-sub_title {
-    border-top-left-radius: $borderRadius;
-    border-top-right-radius: $borderRadius;
+    margin-bottom: 0;
+    @include borderTopRadius(#{$borderRadius});
     line-height: 116px;
     text-align: center;
     color: $white $blue;
   }
 
   &-price {
-    display: block;
-    line-height: 36px;
+    margin-bottom: 63px;
     text-align: center;
+  }
+
+  &-list {
+    margin-bottom: 34px;
+    @include padding('* 20px * 26px');
+    font-size: 18px/21.6px;
+
+    .list-item {
+      margin-bottom: 18px;
+    }
   }
 
   &-btn {
     display: table;
     @include margin('* auto');
+    @include padding('* 43px');
   }
 }

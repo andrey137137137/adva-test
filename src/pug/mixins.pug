@@ -14,7 +14,7 @@ mixin button(content, classes)
 
 mixin occasion(imgTitle, title = '')
   - var desc = 'Опис основних випадків, в котрих сервіс буде корисним, і з якими частіше за все стикаються наші користувачі'
-  - var classes = title ? colClasses[4] + ' card occasions-card' : colClasses[6]
+  - var classes = title ? colClasses[4] + ' card bg-white occasions-card' : colClasses[6]
 
   article.col.col-sm-12(class = classes)
     if !title
@@ -39,7 +39,7 @@ mixin service(title, imgTitle = 0)
       'Представництво інтересів під час вирішення сімейних спорів у судах, органах опіки та піклування'
     ]
 
-  article.card.services-card
+  article.card.bg-white.services-card
     if imgTitle
       //- figure.img_wrap
       img.img_wrap-img(src = pathes.img + '/img_services/' + imgTitle + '.jpg' alt = imgTitle)
@@ -66,8 +66,8 @@ mixin serviceForm(colClasses = '')
 
 mixin packageServiceLI(key, value, disabled = false)
   //- li.row(class = {'disabled': disabled})
-  li.row.d-flex(class = {'text-muted': disabled})
-    .col= key
+  li.row.d-flex.list-item(class = {'text-muted': disabled})
+    .col-10= key
     .col.text-end= value
 
 mixin packageService(title, price, count = 0, list = [])
@@ -80,11 +80,11 @@ mixin packageService(title, price, count = 0, list = [])
   - var subTag = 'sub'
   - var priceStr = (cond ? '<' + subTag + '> від </' + subTag + '> ' : '') + price + ' грн'
 
-  article.col.package_services-col
+  article.card.bg-white.package_services-card
     h3.section-title.section-title--big.package_services-sub_title= title
-    div
-      b.section-title.section-title--big.package_services-price !{priceStr}
-      ul
+    section.card-body
+      h4.section-title.section-title--big.package_services-price !{priceStr}
+      ul.list.package_services-list
         each item, index in items
           +packageServiceLI(item, itemValue, cond && index >= count)
       +button('Замовити', 'package_services-btn')

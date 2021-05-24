@@ -1,30 +1,31 @@
-const gulp = require('gulp'),
-  $gp = require('gulp-load-plugins')(),
-  del = require('del'),
-  cssnext = require('postcss-cssnext'),
-  short = require('postcss-short'),
-  shortText = require('postcss-short-text'),
-  shortBorder = require('postcss-short-border'),
-  webpack = require('webpack-stream'),
-  webpackConfig = require('./webpack.config.js'),
-  browserSync = require('browser-sync').create(),
-  pathes = {
-    src: 'src',
-    dest: 'public',
-    assets: 'public/assets',
-    html: {
-      src: '/pug',
-      dest: '',
-    },
-    css: {
-      src: '/scss',
-      dest: '/css',
-    },
-    js: {
-      src: '/js',
-      dest: '/js',
-    },
-  };
+const gulp = require('gulp');
+const $gp = require('gulp-load-plugins')();
+const del = require('del');
+const cssnext = require('postcss-cssnext');
+const short = require('postcss-short');
+const shortText = require('postcss-short-text');
+const shortBorder = require('postcss-short-border');
+const shortBorderRadius = require('postcss-short-border-radius');
+const webpack = require('webpack-stream');
+const webpackConfig = require('./webpack.config.js');
+const browserSync = require('browser-sync').create();
+const pathes = {
+  src: 'src',
+  dest: 'public',
+  assets: 'public/assets',
+  html: {
+    src: '/pug',
+    dest: '',
+  },
+  css: {
+    src: '/scss',
+    dest: '/css',
+  },
+  js: {
+    src: '/js',
+    dest: '/js',
+  },
+};
 
 for (path in pathes) {
   if (!pathes[path].src) {
@@ -65,6 +66,7 @@ function css() {
     // shortFont(),
     shortText(),
     shortBorder(),
+    shortBorderRadius(),
     // minmax(),
     // autoprefixer({browsers: ['last 2 version']}),
     // cssnano()

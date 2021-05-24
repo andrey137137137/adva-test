@@ -44,6 +44,26 @@
   @include cssProp(border, $value);
 }
 
+@mixin borderTopRadius($value) {
+  // border-top-radius: unquote($value);
+  @include cssProp('border-top-radius', $value);
+}
+
+@mixin borderRightRadius($value) {
+  // border-right-radius: unquote($value);
+  @include cssProp('border-right-radius', $value);
+}
+
+@mixin borderBottomRadius($value) {
+  // border-bottom-radius: unquote($value);
+  @include cssProp('border-bottom-radius', $value);
+}
+
+@mixin borderLeftRadius($value) {
+  // border-left-radius: unquote($value);
+  @include cssProp('border-left-radius', $value);
+}
+
 @mixin padding($value) {
   // padding: unquote($value);
   @include cssProp(padding, $value);
@@ -63,36 +83,9 @@
   line-height: $height - $border * 2;
 }
 
-@mixin percentsToCircleLength($percents, $max) {
-  // $percents: $value*100/$max;
-  stroke-dasharray: $percents * $max/100 $max;
-}
-
 @mixin percentsToOpacity($percents) {
   // $percents: $value*100/$max;
   opacity: $percents * 0.01;
-}
-
-@mixin svgBg($id) {
-  background: url('../svg/symbol/svg/sprite.symbol.svg##{$id}');
-}
-
-@mixin borderCornerColor($firstColor, $secondColor: $firstColor) {
-  @include border('* / * / * #{$firstColor} * #{$secondColor}');
-}
-
-@mixin borderPx($width, $height) {
-  $halfWidth: $width/2;
-
-  @include border('#{$height} #{$halfWidth} 0 #{$halfWidth} / solid / transparent * transparent *');
-}
-
-@mixin borderCornerHeight($height, $block: 'top_wrap') {
-  margin-top: -$height;
-
-  .#{$block}__corner_border {
-    border-top-width: $height;
-  }
 }
 
 @mixin widthToPercents($value, $total) {
@@ -100,34 +93,4 @@
   // $total: $total - 2 * $totalPadding;
 
   width: calc(#{$per}/#{$total});
-}
-
-@mixin cols($count, $colWidth, $postfix, $totalWidth) {
-  $colClass: '.col';
-
-  @for $col from 1 through $count {
-    #{$colClass}#{$colClass}-#{$postfix}_#{$col} {
-      @include widthToPercents($col * $colWidth, $totalWidth);
-    }
-  }
-}
-
-@mixin container($maxWidth: 768, $padding: 12, $postfix: 'tb', $count: 12) {
-  $contentWidth: $maxWidth - 2 * $padding;
-  $colWidth: $contentWidth / $count;
-
-  .container {
-    $block: &;
-
-    max-width: #{$maxWidth}px;
-    @include padding('* #{$padding}px');
-
-    @include cols($count - 1, $colWidth, $postfix, $contentWidth);
-
-    @if $padding > 0 {
-      &#{$block}-full_width {
-        @include cols($count, $colWidth, $postfix, $maxWidth);
-      }
-    }
-  }
 }
