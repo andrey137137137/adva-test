@@ -1,9 +1,0 @@
-+section('package_services', titles.packageService)
-  -
-    var items = [
-      {title: 'Базовий', price: 500},
-      {title: 'Бухгалтерський', price: 600},
-      {title: 'Преміум', price: 999}
-    ]
-  each item in items
-    +packageService(item.title, item.price)
