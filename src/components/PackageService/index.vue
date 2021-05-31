@@ -4,7 +4,7 @@ article.card.bg-white.package_services-card
   section.card-body
     h4.section-title.section-title--big.package_services-price
       //- PckgSub(v-if='cond')
-      //- | { price }
+      //- | { calcPrice }
       | {{ priceElem }}
     ul.list.package_services-list
       PckgItem(
@@ -35,25 +35,30 @@ export default {
     title: { type: String, required: true },
     price: { type: Number, required: true },
     count: { type: Number, default: 0 },
-    list: { type: Array, default: [] },
+    list: {
+      type: Array,
+      default() {
+        return [];
+      },
+    },
   },
   computed: {
     cond() {
       return this.count > 0;
     },
-    price() {
+    calcPrice() {
       return this.price + ' грн';
     },
     priceElem() {
       if (this.cond) {
         return (
           <fragment>
-            <sub> від </sub> {this.price}
+            <sub> від </sub> {this.calcPrice}
           </fragment>
         );
       }
 
-      return this.price;
+      return this.calcPrice;
     },
     items() {
       return this.cond

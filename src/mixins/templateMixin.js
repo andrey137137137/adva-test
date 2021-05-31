@@ -1,3 +1,5 @@
+const assetsPath = '/assets';
+
 export default {
   data() {
     return {
@@ -10,7 +12,7 @@ export default {
         service: 'Основні послуги',
         packageService: 'Пакетні послуги',
       },
-      assetsPath: '/assets',
+      assetsPath,
       pathes: {
         svg: assetsPath + '/svg',
         img: assetsPath + '/img',
