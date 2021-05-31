@@ -31,5 +31,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@scssCmp/MainHeaderWrap/sm';
+@import '@scssCmp/MainHeaderWrap';
 </style>
