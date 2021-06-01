@@ -1,13 +1,13 @@
 <template lang="pug">
-SectionCmp(classes='package_services', :title='titles.packageService') 
+SectionCmp(classes='services', :title='titles.service') 
   .col
     RowCmp
-      ServiceCard(v-for='i in 4', :title='getTitle(i)')
+      ServiceCard(v-for='i in 4', :key='i', :title='getTitle(i)')
   ServiceForm
 </template>
 
 <script>
-import templateMixin from '@mixins/templateMixin';
+import commonMixin from '@mixins/commonMixin';
 import SectionCmp from '@cmp/SectionCmp';
 import RowCmp from '@cmp/RowCmp';
 import ServiceCard from '@cmp/ServiceCard';
@@ -15,7 +15,7 @@ import ServiceForm from '@cmp/ServiceForm';
 
 export default {
   name: 'ServicesList',
-  mixins: [templateMixin],
+  mixins: [commonMixin],
   components: {
     SectionCmp,
     RowCmp,
@@ -27,7 +27,7 @@ export default {
       if (!index) {
         return 'Сімейні спори';
       }
-      return 'Назва послуги ' + (index + 1);
+      return 'Назва послуги ' + index;
     },
   },
 };

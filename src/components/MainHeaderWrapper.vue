@@ -3,7 +3,7 @@ article.section.main
   .container.section-container.main-container
     .row.main-row
       figure.img_wrap.main-img
-        img.img_wrap-img(:src='this.pathes.img + "/main.png"', alt='Смартфон')
+        img.img_wrap-img(src='@assets/img/main.png', alt='Смартфон')
       .col.col-8.main-text
         h1.section-title.section-title--large
           | Юридична допомога
@@ -18,12 +18,12 @@ article.section.main
 </template>
 
 <script>
-import templateMixin from '@mixins/templateMixin';
+import commonMixin from '@mixins/commonMixin';
 import BtnCmp from '@cmp/BtnCmp';
 
 export default {
-  name: 'MainHeaderWrap',
-  mixins: [templateMixin],
+  name: 'MainHeaderWrapper',
+  mixins: [commonMixin],
   components: {
     BtnCmp,
   },
@@ -31,5 +31,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@scssCmp/MainHeaderWrap';
+@import '@scssCmp/MainHeaderWrapper';
 </style>

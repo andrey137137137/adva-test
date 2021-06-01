@@ -16,15 +16,15 @@
 }
 
 @mixin fonts($fontFamily, $weight: normal, $style: normal) {
-  $rootPath: '/assets/fonts';
+  $rootPath: '~@/assets/fonts';
 
   @font-face {
     font-family: $fontFamily;
     src: url('#{$rootPath}/#{$fontFamily}/#{$fontFamily}.eot');
     src: url('#{$rootPath}/#{$fontFamily}/#{$fontFamily}.eot?#iefix')
         format('embedded-opentype'),
-      url('#{$rootPath}/#{$fontFamily}/#{$fontFamily}.woff2') format('woff2'),
-      url('#{$rootPath}/#{$fontFamily}/#{$fontFamily}.woff') format('woff'),
+      // url('#{$rootPath}/#{$fontFamily}/#{$fontFamily}.woff2') format('woff2'),
+        url('#{$rootPath}/#{$fontFamily}/#{$fontFamily}.woff') format('woff'),
       url('#{$rootPath}/#{$fontFamily}/#{$fontFamily}.ttf') format('truetype');
     font-weight: $weight;
     font-style: $style;

@@ -1,6 +1,6 @@
 <template lang="pug">
 PageWrapper
-  IconOccasions
+  //- IconOccasions
   ImgServices
   ExtPckgServices
   JobStages

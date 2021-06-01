@@ -1,7 +1,8 @@
 <template lang="pug">
 SectionCmp(classes='ext_package_services', :title='titles.packageService')
   PackageService(
-    v-for='item in items',
+    v-for='(item, index) in items',
+    :key='index',
     :title='item.title',
     :price='item.price',
     :count='item.count',
@@ -10,13 +11,13 @@ SectionCmp(classes='ext_package_services', :title='titles.packageService')
 </template>
 
 <script>
-import templateMixin from '@mixins/templateMixin';
+import commonMixin from '@mixins/commonMixin';
 import SectionCmp from '@cmp/SectionCmp';
 import PackageService from '@cmp/PackageService';
 
 export default {
   name: 'ExtPckgServices',
-  mixins: [templateMixin],
+  mixins: [commonMixin],
   components: {
     SectionCmp,
     PackageService,

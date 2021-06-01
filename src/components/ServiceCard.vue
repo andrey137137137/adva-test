@@ -15,12 +15,12 @@ article.card.bg-white.services-card
 </template>
 
 <script>
-import templateMixin from '@mixins/templateMixin';
+import commonMixin from '@mixins/commonMixin';
 import BtnCmp from '@cmp/BtnCmp';
 
 export default {
   name: 'ServiceCard',
-  mixins: [templateMixin],
+  mixins: [commonMixin],
   components: {
     BtnCmp,
   },

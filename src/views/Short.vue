@@ -1,8 +1,8 @@
 <template lang="pug">
 PageWrapper
-  OccasionsList
-  ServicesList
-  PackageServices
+  //- OccasionsList
+  //- ServicesList
+  //- PackageServices
 </template>
 
 <script>

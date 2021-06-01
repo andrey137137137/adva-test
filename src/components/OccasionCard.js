@@ -1,10 +1,10 @@
-import templateMixin from '@mixins/templateMixin';
+import commonMixin from '@mixins/commonMixin';
 import { Fragment } from 'vue-fragment';
 import RowCmp from '@cmp/RowCmp';
 
 export default {
   name: 'OccasionCard',
-  mixins: [templateMixin],
+  mixins: [commonMixin],
   components: {
     Fragment,
     RowCmp,
@@ -15,7 +15,8 @@ export default {
       {
         class: 'col col-sm-12' + this.classes,
       },
-      this.title ? this.withTitleContent() : this.withoutTitleContent(),
+      // [this.title ? this.withTitleContent(h) : this.withoutTitleContent(h)],
+      [<div class="icon"></div>],
     );
   },
   props: {
@@ -39,18 +40,9 @@ export default {
     withTitleContent() {
       return (
         <fragment>
-          <div class="icon"></div>
-          <p> {this.desc} </p>
-        </fragment>
-      );
-    },
-    withoutTitleContent() {
-      // figure.img_wrap(v-if='title')
-      return (
-        <fragment>
           <img
             class="img_wrap-img occasions-img"
-            src={this.pathes.img + '/occasions/' + this.imgTitle + '.jpg'}
+            src={require('@assets/img/occasions/' + this.imgTitle + '.jpg')}
             alt={this.imgTitle}
           />
           <section class="card-body">
@@ -59,6 +51,14 @@ export default {
             </h3>
             <p> {this.desc} </p>
           </section>
+        </fragment>
+      );
+    },
+    withoutTitleContent() {
+      return (
+        <fragment>
+          <div class="icon"></div>
+          <p> {this.desc} </p>
         </fragment>
       );
     },

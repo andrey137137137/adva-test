@@ -3,13 +3,13 @@ article.card.bg-white.package_services-card
   h3.section-title.section-title--big.package_services-sub_title {{ title }}
   section.card-body
     h4.section-title.section-title--big.package_services-price
-      //- PckgSub(v-if='cond')
-      //- | { calcPrice }
-      | {{ priceElem }}
+      PckgSub(v-if='cond')
+      | {{ calcPrice }}
     ul.list.package_services-list
       PckgItem(
         v-for='(item, index) in items',
-        :key='item',
+        :key='index',
+        :title='item',
         :value='itemValue',
         :disabled='itemCond(index)'
       )
@@ -18,14 +18,14 @@ article.card.bg-white.package_services-card
 </template>
 
 <script>
-import templateMixin from '@mixins/templateMixin';
+import commonMixin from '@mixins/commonMixin';
 import PckgSub from './PckgSub';
 import PckgItem from './PckgItem';
 import BtnCmp from '@cmp/BtnCmp';
 
 export default {
   name: 'ServiceForm',
-  mixins: [templateMixin],
+  mixins: [commonMixin],
   components: {
     PckgSub,
     PckgItem,
@@ -48,17 +48,6 @@ export default {
     },
     calcPrice() {
       return this.price + ' грн';
-    },
-    priceElem() {
-      if (this.cond) {
-        return (
-          <fragment>
-            <sub> від </sub> {this.calcPrice}
-          </fragment>
-        );
-      }
-
-      return this.calcPrice;
     },
     items() {
       return this.cond

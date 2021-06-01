@@ -11,12 +11,12 @@ SectionCmp(classes='job_stages', title='Етапи роботи')
 </template>
 
 <script>
-import templateMixin from '@mixins/templateMixin';
+import commonMixin from '@mixins/commonMixin';
 import SectionCmp from '@cmp/SectionCmp';
 
 export default {
   name: 'IconOccasions',
-  mixins: [templateMixin],
+  mixins: [commonMixin],
   components: {
     SectionCmp,
   },

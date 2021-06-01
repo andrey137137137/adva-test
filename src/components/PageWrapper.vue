@@ -1,21 +1,21 @@
 <template lang="pug">
 fragment
   NavMenu
-  MainHeaderWrap
+  MainHeaderWrapper
   slot
 </template>
 
 <script>
 import { Fragment } from 'vue-fragment';
 import NavMenu from '@cmp/NavMenu';
-import MainHeaderWrap from '@cmp/MainHeaderWrap';
+import MainHeaderWrapper from '@cmp/MainHeaderWrapper';
 
 export default {
   name: 'ViewIndex',
   components: {
     Fragment,
     NavMenu,
-    MainHeaderWrap,
+    MainHeaderWrapper,
   },
 };
 </script>
