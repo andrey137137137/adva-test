@@ -1,12 +1,11 @@
 <template lang="pug">
 SectionCmp(classes='occasions', :title='titles.occasion')
-  div(:style='{ height: "300px", background: "pink" }')
   OccasionCard(
-    :imgTitle='getImgName(1)',
-    :title='"Заголовок " + getImgName(1)'
+    v-for='i in 4',
+    :key='i',
+    :imgTitle='getImgName(i)',
+    :title='"Заголовок " + getImgName(i)'
   )
-    //- v-for='i in 4',
-    //- :key='i',
 </template>
 
 <script>

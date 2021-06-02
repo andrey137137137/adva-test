@@ -15,8 +15,7 @@ export default {
       {
         class: 'col col-sm-12' + this.classes,
       },
-      // [this.title ? this.withTitleContent(h) : this.withoutTitleContent(h)],
-      [<div class="icon"></div>],
+      [this.title ? this.withTitleContent(h) : this.withoutTitleContent(h)],
     );
   },
   props: {
