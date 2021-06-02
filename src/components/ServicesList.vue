@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     getTitle(index) {
-      if (!index) {
+      if (!(index - 1)) {
         return 'Сімейні спори';
       }
       return 'Назва послуги ' + index;

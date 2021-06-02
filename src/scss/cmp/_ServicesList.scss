@@ -3,7 +3,7 @@
   $paddingTop: 89px;
 
   @include padding('#{$paddingTop} * 66px');
-  width: 1257px;
+  // width: 1257px;
   // height: 669px + $paddingTop;
 
   &-title {

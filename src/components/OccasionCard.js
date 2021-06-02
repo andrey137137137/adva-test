@@ -13,7 +13,8 @@ export default {
     return h(
       'article',
       {
-        class: 'col col-sm-12' + this.classes,
+        // class: 'col col-sm-12' + this.classes,
+        class: this.classes,
       },
       [this.title ? this.withTitleContent(h) : this.withoutTitleContent(h)],
     );
@@ -31,8 +32,9 @@ export default {
   computed: {
     classes() {
       return this.title
-        ? this.colClasses[4] + ' card bg-white occasions-card'
-        : this.colClasses[6];
+        ? // ? ` ${this.colClasses[4]} card bg-white occasions-card`
+          ` card bg-white occasions-card`
+        : ` ${this.colClasses[6]}`;
     },
   },
   methods: {
